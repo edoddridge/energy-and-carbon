@@ -266,3 +266,20 @@ button:hover {
   background: #f0f4ee;
   font-style: italic;
 }
+
+.ref-subsection {
+  margin-bottom: 2rem;
+}
+
+.ref-subsection h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ref-note {
+  color: var(--muted);
+  font-size: 0.87rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+}
