@@ -99,3 +99,7 @@ This repository includes [deploy-pages.yml](.github/workflows/deploy-pages.yml),
 - **Costs and emissions**: Lower is better for the alternative (EV/RCAC)
 - **Change values**: Negative = improvement (lower cost/emissions), Positive = worse (higher cost/emissions)
 - **Percentage change**: Shows the relative change vs the baseline scenario (petrol for cars, gas for heating)
+
+## License
+This project is licensed under the GNU General Public License v3.0.
+See [LICENSE](LICENSE) for the full text.
