@@ -102,10 +102,18 @@
         <form id="heating-form" class="panel form-panel" aria-label="Heating Comparison Inputs">
           <h3>Inputs</h3>
 
-          <label>
-            Annual heat demand (MJ)
-            <input type="number" step="100" min="0" name="annualHeatDemandMj" value="12600" required />
-          </label>
+          <fieldset class="unit-fieldset">
+            <legend>Annual heat demand</legend>
+            <div class="unit-toggle">
+              <label class="unit-option">
+                <input type="radio" name="heatDemandUnit" value="MJ" checked /> MJ
+              </label>
+              <label class="unit-option">
+                <input type="radio" name="heatDemandUnit" value="kWh" /> kWh
+              </label>
+            </div>
+            <input type="number" step="100" min="0" id="heat-demand-input" name="annualHeatDemandMj" value="12600" required />
+          </fieldset>
 
           <label>
             Gas heater efficiency (0–1)

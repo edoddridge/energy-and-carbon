@@ -131,6 +131,60 @@ button:hover {
   margin-top: 0.5rem;
 }
 
+/* Unit toggle (MJ / kWh) */
+
+.unit-fieldset {
+  border: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.unit-fieldset legend {
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+  padding: 0;
+}
+
+.unit-toggle {
+  display: inline-flex;
+  border: 1px solid #cfd8ca;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.unit-option {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.unit-option:has(input:checked) {
+  background: var(--accent);
+  color: #fff;
+}
+
+.unit-option input[type="radio"] {
+  appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.unit-fieldset input[type="number"] {
+  width: 100%;
+  border: 1px solid #cfd8ca;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.55rem 0.65rem;
+}
+
 .metrics {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -51,12 +51,40 @@ const heatingOutputEls = {
 
 renderHeating(DEFAULT_HEATING_COMPARISON_INPUTS);
 
+const heatDemandInput = document.querySelector("#heat-demand-input");
+const heatDemandUnitRadios = heatingForm.querySelectorAll('input[name="heatDemandUnit"]');
+
+/** 1 kWh = 3.6 MJ */
+const MJ_PER_KWH = 3.6;
+
+heatDemandUnitRadios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    const currentValue = Number(heatDemandInput.value);
+    if (radio.value === "kWh") {
+      heatDemandInput.step = "25";
+      if (Number.isFinite(currentValue) && currentValue > 0) {
+        heatDemandInput.value = String(Math.round(currentValue / MJ_PER_KWH));
+      }
+    } else {
+      heatDemandInput.step = "100";
+      if (Number.isFinite(currentValue) && currentValue > 0) {
+        heatDemandInput.value = String(Math.round(currentValue * MJ_PER_KWH));
+      }
+    }
+  });
+});
+
 heatingForm.addEventListener("submit", (event) => {
   event.preventDefault();
   heatingErrorEl.textContent = "";
 
   try {
-    renderHeating(readInputs(heatingForm));
+    const inputs = readInputs(heatingForm);
+    const selectedUnit = heatingForm.querySelector('input[name="heatDemandUnit"]:checked').value;
+    if (selectedUnit === "kWh") {
+      inputs.annualHeatDemandMj = inputs.annualHeatDemandMj * MJ_PER_KWH;
+    }
+    renderHeating(inputs);
   } catch (error) {
     heatingErrorEl.textContent = error instanceof Error ? error.message : "Unable to calculate.";
   }
@@ -71,6 +99,9 @@ function readInputs(sourceForm) {
 
   for (const [key, value] of formData.entries()) {
     const numberValue = Number(value);
+
+    // Skip non-numeric fields such as unit-selector radio buttons
+    if (Number.isNaN(numberValue)) continue;
 
     if (!Number.isFinite(numberValue)) {
       throw new Error(`Input ${key} must be a valid number.`);
