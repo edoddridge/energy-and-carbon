@@ -198,9 +198,12 @@ button:hover {
 }
 
 .metrics .diff {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc(50% - 0.375rem);
+  border-style: solid;
+  background: #f7faf5;
+}
+
+.metrics .diff-secondary {
+  text-align: right;
 }
 
 .metrics p {
@@ -212,10 +215,6 @@ button:hover {
 @media (max-width: 850px) {
   .layout {
     grid-template-columns: 1fr;
-  }
-
-  .metrics .diff {
-    width: 100%;
   }
 }
 

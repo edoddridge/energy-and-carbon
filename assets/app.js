@@ -17,9 +17,11 @@ const carOutputEls = {
   petrolCost: document.querySelector("#petrol-cost"),
   evCost: document.querySelector("#ev-cost"),
   costSavings: document.querySelector("#car-cost-savings"),
+  costChangePct: document.querySelector("#car-cost-change-pct"),
   petrolEmissions: document.querySelector("#petrol-emissions"),
   evEmissions: document.querySelector("#ev-emissions"),
   emissionsSavings: document.querySelector("#car-emissions-savings"),
+  emissionsChangePct: document.querySelector("#car-emissions-change-pct"),
 };
 
 renderCar(DEFAULT_CAR_COMPARISON_INPUTS);
@@ -44,9 +46,11 @@ const heatingOutputEls = {
   gasCost: document.querySelector("#gas-cost"),
   rcacCost: document.querySelector("#rcac-cost"),
   costSavings: document.querySelector("#heating-cost-savings"),
+  costChangePct: document.querySelector("#heating-cost-change-pct"),
   gasEmissions: document.querySelector("#gas-emissions"),
   rcacEmissions: document.querySelector("#rcac-emissions"),
   emissionsSavings: document.querySelector("#heating-emissions-savings"),
+  emissionsChangePct: document.querySelector("#heating-emissions-change-pct"),
 };
 
 renderHeating(DEFAULT_HEATING_COMPARISON_INPUTS);
@@ -119,10 +123,18 @@ function renderCar(inputs) {
   carOutputEls.petrolCost.textContent = formatCurrency(result.scenarios.petrol.annualCostAud);
   carOutputEls.evCost.textContent = formatCurrency(result.scenarios.ev.annualCostAud);
   carOutputEls.costSavings.textContent = formatCurrency(result.difference.costSavingsAud);
+  carOutputEls.costChangePct.textContent = formatPercentReduction(
+    result.difference.costSavingsAud,
+    result.scenarios.petrol.annualCostAud,
+  );
 
   carOutputEls.petrolEmissions.textContent = formatKg(result.scenarios.petrol.annualEmissionsKgCo2e);
   carOutputEls.evEmissions.textContent = formatKg(result.scenarios.ev.annualEmissionsKgCo2e);
   carOutputEls.emissionsSavings.textContent = formatKg(result.difference.emissionsSavingsKgCo2e);
+  carOutputEls.emissionsChangePct.textContent = formatPercentReduction(
+    result.difference.emissionsSavingsKgCo2e,
+    result.scenarios.petrol.annualEmissionsKgCo2e,
+  );
 }
 
 function renderHeating(inputs) {
@@ -131,10 +143,18 @@ function renderHeating(inputs) {
   heatingOutputEls.gasCost.textContent = formatCurrency(result.scenarios.gas.annualCostAud);
   heatingOutputEls.rcacCost.textContent = formatCurrency(result.scenarios.rcac.annualCostAud);
   heatingOutputEls.costSavings.textContent = formatCurrency(result.difference.costSavingsAud);
+  heatingOutputEls.costChangePct.textContent = formatPercentReduction(
+    result.difference.costSavingsAud,
+    result.scenarios.gas.annualCostAud,
+  );
 
   heatingOutputEls.gasEmissions.textContent = formatKg(result.scenarios.gas.annualEmissionsKgCo2e);
   heatingOutputEls.rcacEmissions.textContent = formatKg(result.scenarios.rcac.annualEmissionsKgCo2e);
   heatingOutputEls.emissionsSavings.textContent = formatKg(result.difference.emissionsSavingsKgCo2e);
+  heatingOutputEls.emissionsChangePct.textContent = formatPercentReduction(
+    result.difference.emissionsSavingsKgCo2e,
+    result.scenarios.gas.annualEmissionsKgCo2e,
+  );
 }
 
 /**
@@ -155,4 +175,19 @@ function formatKg(value) {
   return `${new Intl.NumberFormat("en-AU", {
     maximumFractionDigits: 0,
   }).format(value)} kgCO2e/yr`;
+}
+
+/**
+ * @param {number} savings
+ * @param {number} baseline
+ */
+function formatPercentReduction(savings, baseline) {
+  if (baseline === 0) {
+    return "0%";
+  }
+
+  return `${new Intl.NumberFormat("en-AU", {
+    maximumFractionDigits: 0,
+    signDisplay: "exceptZero",
+  }).format((savings / baseline) * 100)}%`;
 }
