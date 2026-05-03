@@ -124,16 +124,16 @@ function renderCar(inputs) {
   carOutputEls.evCost.textContent = formatCurrency(result.scenarios.ev.annualCostAud);
   carOutputEls.costSavings.textContent = formatCurrency(result.difference.costSavingsAud);
   carOutputEls.costChangePct.textContent = formatPercentChangeVsBaseline(
-    result.difference.costSavingsAud,
     result.scenarios.petrol.annualCostAud,
+    result.scenarios.ev.annualCostAud,
   );
 
   carOutputEls.petrolEmissions.textContent = formatKg(result.scenarios.petrol.annualEmissionsKgCo2e);
   carOutputEls.evEmissions.textContent = formatKg(result.scenarios.ev.annualEmissionsKgCo2e);
   carOutputEls.emissionsSavings.textContent = formatKg(result.difference.emissionsSavingsKgCo2e);
   carOutputEls.emissionsChangePct.textContent = formatPercentChangeVsBaseline(
-    result.difference.emissionsSavingsKgCo2e,
     result.scenarios.petrol.annualEmissionsKgCo2e,
+    result.scenarios.ev.annualEmissionsKgCo2e,
   );
 }
 
@@ -144,16 +144,16 @@ function renderHeating(inputs) {
   heatingOutputEls.rcacCost.textContent = formatCurrency(result.scenarios.rcac.annualCostAud);
   heatingOutputEls.costSavings.textContent = formatCurrency(result.difference.costSavingsAud);
   heatingOutputEls.costChangePct.textContent = formatPercentChangeVsBaseline(
-    result.difference.costSavingsAud,
     result.scenarios.gas.annualCostAud,
+    result.scenarios.rcac.annualCostAud,
   );
 
   heatingOutputEls.gasEmissions.textContent = formatKg(result.scenarios.gas.annualEmissionsKgCo2e);
   heatingOutputEls.rcacEmissions.textContent = formatKg(result.scenarios.rcac.annualEmissionsKgCo2e);
   heatingOutputEls.emissionsSavings.textContent = formatKg(result.difference.emissionsSavingsKgCo2e);
   heatingOutputEls.emissionsChangePct.textContent = formatPercentChangeVsBaseline(
-    result.difference.emissionsSavingsKgCo2e,
     result.scenarios.gas.annualEmissionsKgCo2e,
+    result.scenarios.rcac.annualEmissionsKgCo2e,
   );
 }
 
@@ -178,15 +178,15 @@ function formatKg(value) {
 }
 
 /**
- * @param {number} savings
  * @param {number} baseline
+ * @param {number} comparison
  */
-function formatPercentChangeVsBaseline(savings, baseline) {
+function formatPercentChangeVsBaseline(baseline, comparison) {
   if (baseline === 0) {
     return "0%";
   }
 
-  const percentChange = (savings / baseline) * -100;
+  const percentChange = ((comparison - baseline) / baseline) * 100;
 
   return `${new Intl.NumberFormat("en-AU", {
     maximumFractionDigits: 0,
