@@ -16,7 +16,7 @@ Public interactive dashboard to compare household energy choices and their annua
 
 ### Reference Section
 Comprehensive reference tables with linked sources:
-- Grid emissions intensity by region (AEMO CDEII 2024 data)
+- Grid emissions intensity by region (AEMO CDEII 2025 data)
 - Common petrol & diesel vehicles and their fuel consumption
 - Common electric vehicles sold in Australia and their real-world energy consumption
 - Typical household annual heating demand by climate zone
@@ -50,7 +50,7 @@ Tests cover:
 - Input validation and error handling
 
 ## Data Sources
-- **Grid emissions**: AEMO CDEII 2024 annual averages (NEM regions); NGER / WA Gov (Western Australia)
+- **Grid emissions**: AEMO CDEII 2025 annual averages (NEM regions); NGER / WA Gov (Western Australia)
 - **Vehicle efficiency**: Green Vehicle Guide (ICE) and EV Database (EV) real-world figures
 - **Heating demand**: 2021 Residential Baseline Study for Australia and New Zealand (energyrating.gov.au)
 - **RCAC efficiency**: Australian Government energy.gov.au heating guidance (300–600% COP equivalents)
@@ -81,7 +81,7 @@ This repository includes [deploy-pages.yml](.github/workflows/deploy-pages.yml),
 │   │   └── heatingAnnualComparison.js # Annual gas vs RCAC calculator
 │   │
 │   └── data/
-│       └── gridEmissionsFactors.js    # AEMO CDEII 2024 grid emissions by region
+│       └── gridEmissionsFactors.js    # AEMO CDEII 2025 grid emissions by region
 │
 ├── test/
 │   ├── carAnnualComparison.test.js    # Car calculator tests

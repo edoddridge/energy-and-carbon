@@ -13,6 +13,9 @@
         <p class="subtitle">
           Explore how household energy choices affect annual running cost and carbon emissions in Australia.
         </p>
+        <p>
+          The top two sectionsallow you to input data about your car and heating usage. The dashboard takes this data and shows what it would have cost if you replaced it with an electric alternative. The bottom section provides reference data to help you fill in some representative values.
+        </p>
       </header>
 
       <section class="analysis-section">
@@ -205,49 +208,57 @@
         <div class="ref-subsection">
           <h3>Grid emissions intensity by region</h3>
           <p class="ref-note">
-            Approximate 2024 annual averages. Use your state's value for the Grid emissions intensity input.
-            NEM regions from AEMO CDEII; WA is approximate from NGER reporting.
+            Weighted annual averages from AEMO CDEII. Use your state's most recent value for the Grid emissions intensity input.
+            NEM regions from AEMO CDEII; WA is from Open Electricity.
           </p>
           <div class="intensity-table" role="table" aria-label="Grid emissions intensity by region">
             <div class="intensity-row intensity-head" role="row">
               <span role="columnheader">Region</span>
-              <span role="columnheader">kgCO₂e / kWh</span>
+              <span role="columnheader">2024 (kgCO₂e/kWh)</span>
+              <span role="columnheader">2025 (kgCO₂e/kWh)</span>
               <span role="columnheader">Source</span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">New South Wales &amp; ACT</span>
-              <span role="cell" class="intensity-value">0.73</span>
-              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII 2024</a></span>
+              <span role="cell" class="intensity-value">0.63</span>
+              <span role="cell" class="intensity-value">0.59</span>
+              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Queensland</span>
-              <span role="cell" class="intensity-value">0.77</span>
-              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII 2024</a></span>
+              <span role="cell" class="intensity-value">0.66</span>
+              <span role="cell" class="intensity-value">0.64</span>
+              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Victoria</span>
-              <span role="cell" class="intensity-value">0.82</span>
-              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII 2024</a></span>
+              <span role="cell" class="intensity-value">0.75</span>
+              <span role="cell" class="intensity-value">0.69</span>
+              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">South Australia</span>
-              <span role="cell" class="intensity-value">0.28</span>
-              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII 2024</a></span>
+              <span role="cell" class="intensity-value">0.15</span>
+              <span role="cell" class="intensity-value">0.13</span>
+              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Tasmania</span>
-              <span role="cell" class="intensity-value">0.14</span>
-              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII 2024</a></span>
+              <span role="cell" class="intensity-value">0.02</span>
+              <span role="cell" class="intensity-value">0.01</span>
+              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Western Australia (SWIS)</span>
-              <span role="cell" class="intensity-value">0.60</span>
-              <span role="cell" class="intensity-source"><a href="https://www.cleanenergyregulator.gov.au/NGER" target="_blank" rel="noopener">Approx. — NGER / WA Gov</a></span>
+              <span role="cell" class="intensity-value">0.435</span>
+              <span role="cell" class="intensity-value">0.414</span>
+              <span role="cell" class="intensity-source"><a href="https://explore.openelectricity.org.au/energy/wem/?range=all&interval=1y&view=discrete-time&group=Detailed" target="_blank" rel="noopener">Open Electricity WEM</a></span>
             </div>
             <div class="intensity-row intensity-avg" role="row">
               <span role="cell">NEM average</span>
-              <span role="cell" class="intensity-value">0.65</span>
-              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII 2024</a></span>
+              <span role="cell" class="intensity-value">0.61</span>
+              <span role="cell" class="intensity-value">0.58</span>
+              <span role="cell" class="intensity-source"><a href="https://aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/settlements-and-payments/settlements/carbon-dioxide-equivalent-intensity-index" target="_blank" rel="noopener">AEMO CDEII</a></span>
             </div>
           </div>
         </div>
@@ -255,8 +266,8 @@
         <div class="ref-subsection">
           <h3>Common petrol &amp; diesel cars — fuel consumption</h3>
           <p class="ref-note">
-            Combined-cycle fuel consumption from the
-            <a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">Green Vehicle Guide</a>.
+            Combined-cycle fuel consumption from
+            <a href="https://www.carsguide.com.au/" target="_blank" rel="noopener">CarsGuide</a>.
             Figures are for recent model years; exact consumption varies by variant and driving conditions.
           </p>
           <div class="intensity-table" role="table" aria-label="ICE vehicle fuel consumption">
@@ -267,52 +278,52 @@
               <span role="columnheader">Source</span>
             </div>
             <div class="intensity-row" role="row">
-              <span role="cell">Toyota Corolla (2.0L)</span>
+              <span role="cell">Toyota Corolla (1.8L hybrid)</span>
               <span role="cell">Petrol</span>
-              <span role="cell" class="intensity-value">6.3</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
+              <span role="cell" class="intensity-value">3.9</span>
+                <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/toyota/corolla/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Toyota RAV4 (2.5L hybrid)</span>
+              <span role="cell">Petrol</span>
+              <span role="cell" class="intensity-value">4.8</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/toyota/rav4/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Mazda3 (2.0L)</span>
               <span role="cell">Petrol</span>
-              <span role="cell" class="intensity-value">6.5</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
+              <span role="cell" class="intensity-value">5.9</span>
+                <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/mazda/3/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Hyundai i30 (2.0L)</span>
               <span role="cell">Petrol</span>
-              <span role="cell" class="intensity-value">7.2</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">Toyota RAV4 (2.5L)</span>
-              <span role="cell">Petrol</span>
               <span role="cell" class="intensity-value">7.4</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/hyundai/i30/price/2026/base?id=2IzSMREM" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Mazda CX-5 (2.5L)</span>
               <span role="cell">Petrol</span>
-              <span role="cell" class="intensity-value">7.0</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">Hyundai Tucson (2.0L)</span>
-              <span role="cell">Petrol</span>
-              <span role="cell" class="intensity-value">8.0</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">Toyota HiLux (2.4L)</span>
-              <span role="cell">Diesel</span>
-              <span role="cell" class="intensity-value">7.9</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
+                <span role="cell" class="intensity-value">7.4</span>
+                <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/mazda/cx-5/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">Ford Ranger (2.0L)</span>
               <span role="cell">Diesel</span>
               <span role="cell" class="intensity-value">7.6</span>
-              <span role="cell" class="intensity-source"><a href="https://www.greenvehicleguide.gov.au/" target="_blank" rel="noopener">GVG</a></span>
+                <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/ford/ranger/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Toyota HiLux (2.8L)</span>
+              <span role="cell">Diesel</span>
+              <span role="cell" class="intensity-value">7.9</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/toyota/hilux/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Hyundai Tucson (2.0L)</span>
+              <span role="cell">Petrol</span>
+                <span role="cell" class="intensity-value">8.1</span>
+                <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/hyundai/tucson/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
           </div>
         </div>
@@ -320,9 +331,9 @@
         <div class="ref-subsection">
           <h3>Common electric vehicles — energy consumption</h3>
           <p class="ref-note">
-            Real-world energy consumption estimates from the
-            <a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a>.
-            Real-world figures are typically 15–25% higher than WLTP test values.
+            Energy consumption based on
+            <a href="https://www.carsguide.com.au/" target="_blank" rel="noopener">CarsGuide</a> model data.
+            Where CarsGuide does not list kWh/100km directly, values are derived from quoted battery size and WLTP range.
           </p>
           <div class="intensity-table" role="table" aria-label="EV energy consumption">
             <div class="intensity-row intensity-head" role="row">
@@ -331,44 +342,49 @@
               <span role="columnheader">Source</span>
             </div>
             <div class="intensity-row" role="row">
-              <span role="cell">Tesla Model 3 RWD</span>
-              <span role="cell" class="intensity-value">13.5</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">Hyundai IONIQ 6 (64 kWh, RWD)</span>
-              <span role="cell" class="intensity-value">14.3</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">Tesla Model Y RWD</span>
-              <span role="cell" class="intensity-value">15.8</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">MG MG4 (64 kWh)</span>
-              <span role="cell" class="intensity-value">16.3</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
-            </div>
-            <div class="intensity-row" role="row">
-              <span role="cell">Kia EV6 (77 kWh, RWD)</span>
-              <span role="cell" class="intensity-value">17.4</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
+              <span role="cell">Hyundai IONIQ 6 (77.4 kWh, RWD)</span>
+              <span role="cell" class="intensity-value">12.6</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/hyundai/ioniq-6" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">BYD Seal RWD</span>
-              <span role="cell" class="intensity-value">17.2</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
+              <span role="cell" class="intensity-value">13.3</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/byd/seal" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
-              <span role="cell">Hyundai IONIQ 5 (84 kWh, RWD)</span>
-              <span role="cell" class="intensity-value">17.8</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
+              <span role="cell">Tesla Model 3 RWD</span>
+              <span role="cell" class="intensity-value">13.5</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/tesla/model-3" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Tesla Model Y RWD</span>
+              <span role="cell" class="intensity-value">13.9</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/tesla/model-y/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">MG MG4 (64 kWh)</span>
+              <span role="cell" class="intensity-value">14.2</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/mg/mg4" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Mini Cooper Electric (E)</span>
+              <span role="cell" class="intensity-value">14.3</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/ev/mini-cooper-electric-94123" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
             <div class="intensity-row" role="row">
               <span role="cell">BYD Atto 3</span>
-              <span role="cell" class="intensity-value">17.8</span>
-              <span role="cell" class="intensity-source"><a href="https://ev-database.org/cheatsheet/energy-consumption-electric-car" target="_blank" rel="noopener">EV Database</a></span>
+              <span role="cell" class="intensity-value">14.4</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/byd/atto-3" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Hyundai IONIQ 5 (84 kWh, RWD)</span>
+              <span role="cell" class="intensity-value">14.7</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/hyundai/ioniq-5" target="_blank" rel="noopener">Cars Guide</a></span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Kia EV6 (84 kWh, RWD)</span>
+              <span role="cell" class="intensity-value">15.9</span>
+              <span role="cell" class="intensity-source"><a href="https://www.carsguide.com.au/kia/ev6/fuel-consumption" target="_blank" rel="noopener">Cars Guide</a></span>
             </div>
           </div>
         </div>

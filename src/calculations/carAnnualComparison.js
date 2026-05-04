@@ -46,8 +46,8 @@ export const DEFAULT_CAR_COMPARISON_INPUTS = {
   annualKm: 12000,
   petrolPriceAudPerL: 1.95,
   petrolLPer100Km: 7.4,
-  evTariffAudPerKwh: 0.33,
-  evKwhPer100Km: 16.0,
+  evTariffAudPerKwh: 0.20,
+  evKwhPer100Km: 14.0,
   petrolKgCo2ePerL: 2.31,
   gridKgCo2ePerKwh: 0.65,
 };

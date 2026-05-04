@@ -20,7 +20,7 @@
  *                           region-specific analysis.
  */
 
-import { NEM_AVERAGE_CDEII_2024 } from "../data/gridEmissionsFactors.js";
+import { NEM_AVERAGE_CDEII_2025 } from "../data/gridEmissionsFactors.js";
 
 /**
  * @typedef {Object} HeatingComparisonInputs
@@ -65,11 +65,11 @@ const MJ_PER_KWH = 3.6;
 export const DEFAULT_HEATING_COMPARISON_INPUTS = {
   annualHeatDemandMj: 12600,
   gasEfficiency: 0.9,
-  gasPriceAudPerMj: 0.025,
+  gasPriceAudPerMj: 0.04,
   gasKgCo2ePerMj: 0.0513,
   rcacCop: 3.5,
-  electricityTariffAudPerKwh: 0.33,
-  gridKgCo2ePerKwh: NEM_AVERAGE_CDEII_2024,
+  electricityTariffAudPerKwh: 0.20,
+  gridKgCo2ePerKwh: NEM_AVERAGE_CDEII_2025,
 };
 
 /**
