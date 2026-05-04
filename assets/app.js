@@ -57,14 +57,14 @@ const heatingOutputEls = {
   emissionsChangePct: document.querySelector("#heating-emissions-change-pct"),
 };
 
-renderHeating(DEFAULT_HEATING_COMPARISON_INPUTS);
-
 const heatDemandInput = document.querySelector("#heat-demand-input");
 const heatDemandUnitRadios = heatingForm.querySelectorAll('input[name="heatDemandUnit"]');
 
 /** 1 kWh = 3.6 MJ */
 const MJ_PER_KWH = 3.6;
 const PETROL_KG_CO2E_PER_L = DEFAULT_CAR_COMPARISON_INPUTS.petrolKgCo2ePerL;
+
+renderHeating(DEFAULT_HEATING_COMPARISON_INPUTS);
 
 heatDemandUnitRadios.forEach((radio) => {
   radio.addEventListener("change", () => {
