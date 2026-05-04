@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worked Example - Energy and Carbon Dashboard</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Worked Example</h1>
+        <p class="subtitle">
+          One household, multiple decisions. This dashboard shows how these choices change annual cost and emissions.
+        </p>
+        <nav class="page-links" aria-label="Page navigation">
+          <a href="./index.html">Open Dashboard</a>
+        </nav>
+      </header>
+
+      <section class="analysis-section">
+        <header class="analysis-header">
+          <p class="eyebrow">Baseline</p>
+          <h2>Starting Point</h2>
+          <p class="section-subtitle">
+            These values match the default inputs on the dashboard.
+          </p>
+        </header>
+
+        <div class="panel">
+          <div class="worked-grid">
+            <article>
+              <h3>Transport assumptions</h3>
+              <ul class="decision-list">
+                <li>Distance: 12,000 km/year</li>
+                <li>Petrol car: 7.4 L/100 km at $1.95/L</li>
+                <li>EV: 14.0 kWh/100 km at $0.20/kWh</li>
+                <li>Grid intensity: 0.58 kgCO2e/kWh</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Heating assumptions</h3>
+              <ul class="decision-list">
+                <li>Heat demand: 12,600 MJ/year</li>
+                <li>Gas heater efficiency: 0.90</li>
+                <li>Gas price: $0.04/MJ</li>
+                <li>RCAC COP: 3.5, electricity tariff: $0.20/kWh</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <header class="analysis-header">
+          <p class="eyebrow">Result</p>
+          <h2>Default Outcome</h2>
+        </header>
+        <div class="panel">
+          <div class="intensity-table" role="table" aria-label="Baseline worked example outcomes">
+            <div class="intensity-row intensity-head" role="row">
+              <span role="columnheader">Comparison</span>
+              <span role="columnheader">Annual cost change</span>
+              <span role="columnheader">Annual emissions change</span>
+              <span role="columnheader">Interpretation</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Petrol -> EV</span>
+              <span role="cell" class="intensity-value">-$1,395.60</span>
+              <span role="cell" class="intensity-value">-1,076.88 kgCO2e</span>
+              <span role="cell">Strong win on both cost and emissions</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Gas heater -> RCAC</span>
+              <span role="cell" class="intensity-value">-$360.00</span>
+              <span role="cell" class="intensity-value">-138.20 kgCO2e</span>
+              <span role="cell">Moderate savings; still positive</span>
+            </div>
+            <div class="intensity-row intensity-avg" role="row">
+              <span role="cell">Combined total</span>
+              <span role="cell" class="intensity-value">-$1,755.60</span>
+              <span role="cell" class="intensity-value">-1,215.08 kgCO2e</span>
+              <span role="cell">Lower cost, lower emissions</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <header class="analysis-header">
+          <p class="eyebrow">Decisions</p>
+          <h2>What Changes the Outcome Most?</h2>
+          <p class="section-subtitle">
+            These are typical household decisions that can move your result up or down.
+          </p>
+        </header>
+
+        <div class="panel">
+          <div class="intensity-table" role="table" aria-label="Worked example decision impacts">
+            <div class="intensity-row intensity-head" role="row">
+              <span role="columnheader">Decision</span>
+              <span role="columnheader">Example choice</span>
+              <span role="columnheader">Effect on result</span>
+              <span role="columnheader">Why it matters</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">When you charge EV</span>
+              <span role="cell">Daytime solar or off-peak tariff</span>
+              <span role="cell">Lowers EV running cost</span>
+              <span role="cell">Electricity price is the EV's fuel price</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Which EV model</span>
+              <span role="cell">12.6 vs 15.9 kWh/100 km</span>
+              <span role="cell">Can change EV energy by ~25%</span>
+              <span role="cell">Vehicle efficiency affects electricity use directly</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Your annual km</span>
+              <span role="cell">8,000 vs 20,000 km/year</span>
+              <span role="cell">Scales both savings and emissions impact</span>
+              <span role="cell">More distance amplifies whichever option is cheaper/cleaner</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Heating system quality</span>
+              <span role="cell">RCAC COP 3.0 vs 5.0</span>
+              <span role="cell">Big effect on heating energy use</span>
+              <span role="cell">Higher COP means more heat per kWh and less energy consumed</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Gas price and electricity tariff</span>
+              <span role="cell">Different retailers, different plans</span>
+              <span role="cell">Affects the cost of either option</span>
+              <span role="cell">Prices make a big difference to the money outcome</span>
+            </div>
+            <div class="intensity-row" role="row">
+              <span role="cell">Grid emissions factor</span>
+              <span role="cell">State-based intensity value</span>
+              <span role="cell">Changes calculated electricity emissions</span>
+              <span role="cell">Cleaner grids decrease emissions from EV and RCAC</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="analysis-section">
+        <header class="analysis-header">
+          <p class="eyebrow">Scope</p>
+          <h2>What Is Not Included</h2>
+        </header>
+        <div class="panel">
+          <ul class="decision-list">
+            <p>These calculations do not consider:</p>
+            <li>Vehicle maintenance costs;</li>
+            <li>Daily gas or electricity supply charges; or</li>
+            <li>The impact of installing solar panels on a house.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
