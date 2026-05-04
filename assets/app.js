@@ -19,7 +19,9 @@ const carOutputEls = {
   costSavings: document.querySelector("#car-cost-savings"),
   costChangePct: document.querySelector("#car-cost-change-pct"),
   petrolEmissions: document.querySelector("#petrol-emissions"),
+  petrolEmissionsLitres: document.querySelector("#petrol-emissions-litres"),
   evEmissions: document.querySelector("#ev-emissions"),
+  evEmissionsLitres: document.querySelector("#ev-emissions-litres"),
   emissionsSavings: document.querySelector("#car-emissions-savings"),
   emissionsChangePct: document.querySelector("#car-emissions-change-pct"),
 };
@@ -48,7 +50,9 @@ const heatingOutputEls = {
   costSavings: document.querySelector("#heating-cost-savings"),
   costChangePct: document.querySelector("#heating-cost-change-pct"),
   gasEmissions: document.querySelector("#gas-emissions"),
+  gasEmissionsLitres: document.querySelector("#gas-emissions-litres"),
   rcacEmissions: document.querySelector("#rcac-emissions"),
+  rcacEmissionsLitres: document.querySelector("#rcac-emissions-litres"),
   emissionsSavings: document.querySelector("#heating-emissions-savings"),
   emissionsChangePct: document.querySelector("#heating-emissions-change-pct"),
 };
@@ -60,6 +64,7 @@ const heatDemandUnitRadios = heatingForm.querySelectorAll('input[name="heatDeman
 
 /** 1 kWh = 3.6 MJ */
 const MJ_PER_KWH = 3.6;
+const PETROL_KG_CO2E_PER_L = DEFAULT_CAR_COMPARISON_INPUTS.petrolKgCo2ePerL;
 
 heatDemandUnitRadios.forEach((radio) => {
   radio.addEventListener("change", () => {
@@ -129,7 +134,15 @@ function renderCar(inputs) {
   );
 
   carOutputEls.petrolEmissions.textContent = formatKg(result.scenarios.petrol.annualEmissionsKgCo2e);
+  carOutputEls.petrolEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+    result.scenarios.petrol.annualEmissionsKgCo2e,
+    result.assumptions.petrolKgCo2ePerL,
+  );
   carOutputEls.evEmissions.textContent = formatKg(result.scenarios.ev.annualEmissionsKgCo2e);
+  carOutputEls.evEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+    result.scenarios.ev.annualEmissionsKgCo2e,
+    result.assumptions.petrolKgCo2ePerL,
+  );
   carOutputEls.emissionsSavings.textContent = formatKg(-result.difference.emissionsSavingsKgCo2e);
   carOutputEls.emissionsChangePct.textContent = formatPercentChangeVsBaseline(
     result.scenarios.petrol.annualEmissionsKgCo2e,
@@ -149,7 +162,15 @@ function renderHeating(inputs) {
   );
 
   heatingOutputEls.gasEmissions.textContent = formatKg(result.scenarios.gas.annualEmissionsKgCo2e);
+  heatingOutputEls.gasEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+    result.scenarios.gas.annualEmissionsKgCo2e,
+    PETROL_KG_CO2E_PER_L,
+  );
   heatingOutputEls.rcacEmissions.textContent = formatKg(result.scenarios.rcac.annualEmissionsKgCo2e);
+  heatingOutputEls.rcacEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+    result.scenarios.rcac.annualEmissionsKgCo2e,
+    PETROL_KG_CO2E_PER_L,
+  );
   heatingOutputEls.emissionsSavings.textContent = formatKg(-result.difference.emissionsSavingsKgCo2e);
   heatingOutputEls.emissionsChangePct.textContent = formatPercentChangeVsBaseline(
     result.scenarios.gas.annualEmissionsKgCo2e,
@@ -175,6 +196,17 @@ function formatKg(value) {
   return `${new Intl.NumberFormat("en-AU", {
     maximumFractionDigits: 0,
   }).format(value)} kgCO2e/yr`;
+}
+
+/**
+ * @param {number} emissionsKg
+ * @param {number} petrolKgCo2ePerL
+ */
+function formatPetrolEquivalentLitres(emissionsKg, petrolKgCo2ePerL) {
+  const litres = emissionsKg / petrolKgCo2ePerL;
+  return `${new Intl.NumberFormat("en-AU", {
+    maximumFractionDigits: 0,
+  }).format(litres)} L petrol/yr`;
 }
 
 /**
