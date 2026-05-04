@@ -134,15 +134,19 @@ function renderCar(inputs) {
   );
 
   carOutputEls.petrolEmissions.textContent = formatKg(result.scenarios.petrol.annualEmissionsKgCo2e);
-  carOutputEls.petrolEmissionsLitres.textContent = formatPetrolEquivalentLitres(
-    result.scenarios.petrol.annualEmissionsKgCo2e,
-    result.assumptions.petrolKgCo2ePerL,
-  );
+  if (carOutputEls.petrolEmissionsLitres) {
+    carOutputEls.petrolEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+      result.scenarios.petrol.annualEmissionsKgCo2e,
+      result.assumptions.petrolKgCo2ePerL,
+    );
+  }
   carOutputEls.evEmissions.textContent = formatKg(result.scenarios.ev.annualEmissionsKgCo2e);
-  carOutputEls.evEmissionsLitres.textContent = formatPetrolEquivalentLitres(
-    result.scenarios.ev.annualEmissionsKgCo2e,
-    result.assumptions.petrolKgCo2ePerL,
-  );
+  if (carOutputEls.evEmissionsLitres) {
+    carOutputEls.evEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+      result.scenarios.ev.annualEmissionsKgCo2e,
+      result.assumptions.petrolKgCo2ePerL,
+    );
+  }
   carOutputEls.emissionsSavings.textContent = formatKg(-result.difference.emissionsSavingsKgCo2e);
   carOutputEls.emissionsChangePct.textContent = formatPercentChangeVsBaseline(
     result.scenarios.petrol.annualEmissionsKgCo2e,
@@ -162,15 +166,19 @@ function renderHeating(inputs) {
   );
 
   heatingOutputEls.gasEmissions.textContent = formatKg(result.scenarios.gas.annualEmissionsKgCo2e);
-  heatingOutputEls.gasEmissionsLitres.textContent = formatPetrolEquivalentLitres(
-    result.scenarios.gas.annualEmissionsKgCo2e,
-    PETROL_KG_CO2E_PER_L,
-  );
+  if (heatingOutputEls.gasEmissionsLitres) {
+    heatingOutputEls.gasEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+      result.scenarios.gas.annualEmissionsKgCo2e,
+      PETROL_KG_CO2E_PER_L,
+    );
+  }
   heatingOutputEls.rcacEmissions.textContent = formatKg(result.scenarios.rcac.annualEmissionsKgCo2e);
-  heatingOutputEls.rcacEmissionsLitres.textContent = formatPetrolEquivalentLitres(
-    result.scenarios.rcac.annualEmissionsKgCo2e,
-    PETROL_KG_CO2E_PER_L,
-  );
+  if (heatingOutputEls.rcacEmissionsLitres) {
+    heatingOutputEls.rcacEmissionsLitres.textContent = formatPetrolEquivalentLitres(
+      result.scenarios.rcac.annualEmissionsKgCo2e,
+      PETROL_KG_CO2E_PER_L,
+    );
+  }
   heatingOutputEls.emissionsSavings.textContent = formatKg(-result.difference.emissionsSavingsKgCo2e);
   heatingOutputEls.emissionsChangePct.textContent = formatPercentChangeVsBaseline(
     result.scenarios.gas.annualEmissionsKgCo2e,
