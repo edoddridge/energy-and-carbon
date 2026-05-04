@@ -125,18 +125,10 @@
         <form id="heating-form" class="panel form-panel" aria-label="Heating Comparison Inputs">
           <h3>Inputs</h3>
 
-          <fieldset class="unit-fieldset">
-            <legend>Annual heat demand</legend>
-            <div class="unit-toggle">
-              <label class="unit-option">
-                <input type="radio" name="heatDemandUnit" value="MJ" checked /> MJ
-              </label>
-              <label class="unit-option">
-                <input type="radio" name="heatDemandUnit" value="kWh" /> kWh
-              </label>
-            </div>
+          <label>
+            Annual heat demand (MJ)
             <input type="number" step="100" min="0" id="heat-demand-input" name="annualHeatDemandMj" value="12600" required />
-          </fieldset>
+          </label>
 
           <label>
             Gas heater efficiency (0–1)
@@ -171,6 +163,10 @@
           <h3>Results</h3>
 
           <div class="metrics">
+            <article class="full-row-card">
+              <h4>RCAC annual kWh consumed</h4>
+              <p id="rcac-annual-kwh">-</p>
+            </article>
             <article>
               <h4>Gas annual cost</h4>
               <p id="gas-cost">-</p>

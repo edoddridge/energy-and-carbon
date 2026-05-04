@@ -46,6 +46,7 @@ const heatingErrorEl = document.querySelector("#heating-form-error");
 
 const heatingOutputEls = {
   gasCost: document.querySelector("#gas-cost"),
+  rcacAnnualKwh: document.querySelector("#rcac-annual-kwh"),
   rcacCost: document.querySelector("#rcac-cost"),
   costSavings: document.querySelector("#heating-cost-savings"),
   costChangePct: document.querySelector("#heating-cost-change-pct"),
@@ -57,43 +58,16 @@ const heatingOutputEls = {
   emissionsChangePct: document.querySelector("#heating-emissions-change-pct"),
 };
 
-const heatDemandInput = document.querySelector("#heat-demand-input");
-const heatDemandUnitRadios = heatingForm.querySelectorAll('input[name="heatDemandUnit"]');
-
-/** 1 kWh = 3.6 MJ */
-const MJ_PER_KWH = 3.6;
 const PETROL_KG_CO2E_PER_L = DEFAULT_CAR_COMPARISON_INPUTS.petrolKgCo2ePerL;
 
 renderHeating(DEFAULT_HEATING_COMPARISON_INPUTS);
-
-heatDemandUnitRadios.forEach((radio) => {
-  radio.addEventListener("change", () => {
-    const currentValue = Number(heatDemandInput.value);
-    if (radio.value === "kWh") {
-      heatDemandInput.step = "25";
-      if (Number.isFinite(currentValue) && currentValue > 0) {
-        heatDemandInput.value = String(Math.round(currentValue / MJ_PER_KWH));
-      }
-    } else {
-      heatDemandInput.step = "100";
-      if (Number.isFinite(currentValue) && currentValue > 0) {
-        heatDemandInput.value = String(Math.round(currentValue * MJ_PER_KWH));
-      }
-    }
-  });
-});
 
 heatingForm.addEventListener("submit", (event) => {
   event.preventDefault();
   heatingErrorEl.textContent = "";
 
   try {
-    const inputs = readInputs(heatingForm);
-    const selectedUnit = heatingForm.querySelector('input[name="heatDemandUnit"]:checked').value;
-    if (selectedUnit === "kWh") {
-      inputs.annualHeatDemandMj = inputs.annualHeatDemandMj * MJ_PER_KWH;
-    }
-    renderHeating(inputs);
+    renderHeating(readInputs(heatingForm));
   } catch (error) {
     heatingErrorEl.textContent = error instanceof Error ? error.message : "Unable to calculate.";
   }
@@ -109,7 +83,7 @@ function readInputs(sourceForm) {
   for (const [key, value] of formData.entries()) {
     const numberValue = Number(value);
 
-    // Skip non-numeric fields such as unit-selector radio buttons
+    // Skip non-numeric fields.
     if (Number.isNaN(numberValue)) continue;
 
     if (!Number.isFinite(numberValue)) {
@@ -158,6 +132,7 @@ function renderHeating(inputs) {
   const result = compareAnnualGasVsRcac(inputs);
 
   heatingOutputEls.gasCost.textContent = formatCurrency(result.scenarios.gas.annualCostAud);
+  heatingOutputEls.rcacAnnualKwh.textContent = formatKwh(result.scenarios.rcac.annualElectricityKwh);
   heatingOutputEls.rcacCost.textContent = formatCurrency(result.scenarios.rcac.annualCostAud);
   heatingOutputEls.costSavings.textContent = formatCurrency(-result.difference.costSavingsAud);
   heatingOutputEls.costChangePct.textContent = formatPercentChangeVsBaseline(
@@ -204,6 +179,15 @@ function formatKg(value) {
   return `${new Intl.NumberFormat("en-AU", {
     maximumFractionDigits: 0,
   }).format(value)} kgCO2e/yr`;
+}
+
+/**
+ * @param {number} value
+ */
+function formatKwh(value) {
+  return `${new Intl.NumberFormat("en-AU", {
+    maximumFractionDigits: 0,
+  }).format(value)} kWh/yr`;
 }
 
 /**
